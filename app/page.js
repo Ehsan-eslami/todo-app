@@ -121,6 +121,10 @@ export default function Home() {
           </div>
         </ul>
       </section>
+      <div class="attribution dark:text-white absolute bottom-0 left-[50%] translate-x-[-50%]">
+        Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+        Coded by <a href="https://github.com/Ehsan-eslami">Ehsan Eslami</a>.
+      </div>
     </div>
   );
 }

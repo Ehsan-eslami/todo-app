@@ -33,3 +33,6 @@ button{
 button:hover{
   color: hsl(220, 98%, 61%);
 }
+
+.attribution { font-size: 11px; text-align: center; }
+.attribution a { color: hsl(228, 45%, 44%); }
