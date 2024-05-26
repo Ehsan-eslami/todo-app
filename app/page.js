@@ -14,6 +14,12 @@ export default function Home() {
     setLeft(todos.filter((todo) => todo.status === 'pending').length);
   }, [todos]);
 
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+        console.log(window.innerWidth);
+    }
+  }, []);
+
   const handleChange = (e) => {
     setTodosVal(e.target.value);
   };
