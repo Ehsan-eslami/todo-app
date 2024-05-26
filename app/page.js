@@ -1,3 +1,4 @@
+"use client"
 import ThemeSwitcher from './components/ThemeSwitcher'
 import Thumbnail from "./components/Thumbnail";
 import styles from "./global.css";
