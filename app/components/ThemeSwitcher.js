@@ -2,10 +2,16 @@
 import React, { useState, useEffect } from 'react';
 
 export default function ThemeSwitcher() {
-  const [isLight, setIsLight] = useState(() => {
-    const storedTheme = window.localStorage.getItem('prefered-theme');
-    return storedTheme !== 'darkTheme';
-  });
+  const [isLight, setIsLight] = useState(true); // مقدار پیش‌فرض
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const storedTheme = window.localStorage.getItem('prefered-theme');
+      if (storedTheme !== null) {
+        setIsLight(storedTheme !== 'darkTheme');
+      }
+    }
+  }, []);
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -15,23 +21,29 @@ export default function ThemeSwitcher() {
 
   function setLightTheme() {
     setIsLight(true);
-    window.localStorage.setItem('prefered-theme', 'lightTheme');
+    if (typeof window !== 'undefined') {
+      window.localStorage.setItem('prefered-theme', 'lightTheme');
+    }
   }
 
   function setDarkTheme() {
     setIsLight(false);
-    window.localStorage.setItem('prefered-theme', 'darkTheme');
+    if (typeof window !== 'undefined') {
+      window.localStorage.setItem('prefered-theme', 'darkTheme');
+    }
   }
 
   useEffect(() => {
-    const storedTheme = window.localStorage.getItem('prefered-theme');
-    const root = window.document.documentElement;
-    if (storedTheme === 'darkTheme') {
-      root.classList.add('dark');
-    } else {
-      root.classList.remove('dark');
+    if (typeof window !== 'undefined') {
+      const storedTheme = window.localStorage.getItem('prefered-theme');
+      const root = window.document.documentElement;
+      if (storedTheme === 'darkTheme') {
+        root.classList.add('dark');
+      } else {
+        root.classList.remove('dark');
+      }
+      console.log(`${storedTheme} selected`);
     }
-    console.log(`${storedTheme} selected`);
   }, [isLight]);
 
   return (
