@@ -15,7 +15,7 @@ export default function ThemeSwitcher() {
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
-        console.log(window.innerWidth);
+        // console.log(window.innerWidth);
     }
   }, []);
 
@@ -42,7 +42,7 @@ export default function ThemeSwitcher() {
       } else {
         root.classList.remove('dark');
       }
-      console.log(`${storedTheme} selected`);
+      // console.log(`${storedTheme} selected`);
     }
   }, [isLight]);
 

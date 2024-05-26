@@ -16,7 +16,7 @@ export default function Home() {
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
-        console.log(window.innerWidth);
+        // console.log(window.innerWidth);
     }
   }, []);
 
