@@ -39,17 +39,17 @@ export default function Home() {
       return todo
     }))
     setLeft(todos.filter((todo)=> todo.status === 'pending' ))
-    console.log(left);
   }
 
   const handleDeleteAll = () => {
     setTodos([])
+    setTodosVal('')
   }
   
   return (
     <div className=" h-screen w-screen  bg-white dark:bg-[#161722]">
       <Thumbnail/>
-      <section className=" absolute flex flex-col gap-7 top-[50%] w-[40%] h-[70%] left-[50%] translate-x-[-50%] translate-y-[-50%] " >
+      <section className=" absolute flex flex-col gap-7 top-[50%] w-[40%] h-[85%] left-[50%] translate-x-[-50%] translate-y-[-50%] " >
         <div className="flex justify-between">
           <h1 className="font-bold text-4xl tracking-widest text-white">
             TODO
@@ -77,13 +77,13 @@ export default function Home() {
         <ul 
           className='bg-white dark:bg-[#393A4C] w-full h-full shadow-xl rounded-md overflow-hidden'
         >
-          <div className='h-[90%] overflow-y-scroll'>
+          <div className='h-[87%] overflow-y-scroll'>
             <div className=' overflow-hidden'>
               {
-                todos.map((todo, index) => (
+                todos.map((todo) => (
                   <li 
                   key={todo.id} 
-                  className='flex justify-between gap-2 w-full px-4 py-2 dark:bg-[#393A4C] border-b-[1px] border-slate-500 dark:text-white hover:opacity-80'
+                  className='flex justify-between gap-2 w-full px-4 py-2 dark:bg-[#393A4C] border-b-[1px] border-slate-300 dark:text-white hover:opacity-80'
                   >
                     {todo.status === 'pending' ? (
                       <div 
@@ -111,17 +111,29 @@ export default function Home() {
             </div>
           </div>
 
-          <div className='flex justify-between px-4 w-full h-10' >
-            <div>
-              {!left ? '' : left.length} items left
+          <div className='flex justify-between px-4 w-full h-16 py-2 text-slate-700 dark:text-slate-400' >
+            <div className='flex flex-row justify-center'>
+              <p className='my-auto text-[12px]'>
+                {!left ? 
+                  <span>
+                    {todos.length} items left
+                  </span>
+                  :
+                  <span>
+                    {left.length} items left
+                  </span>
+                }
+              </p> 
             </div>
-            <div>
-              <button>Hello</button>
-              <button>From</button>
-              <button>Button</button>
+
+            <div className='flex flex-row justify-center '>
+              <button>All</button>
+              <button>Active</button>
+              <button>Completed</button>
             </div>
-            <div>
-              <button onClick={handleDeleteAll}>
+
+            <div className='flex flex-row justify-center'>
+              <button  onClick={handleDeleteAll}>
                 Clear Completed
               </button>
             </div>
