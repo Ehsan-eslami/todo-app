@@ -75,7 +75,7 @@ export default function Home() {
         </form>
 
         <ul 
-          className='dark:bg-[#393A4C] w-full h-full shadow-xl rounded-md overflow-hidden'
+          className='bg-white dark:bg-[#393A4C] w-full h-full shadow-xl rounded-md overflow-hidden'
         >
           <div className='h-[90%] overflow-y-scroll'>
             <div className=' overflow-hidden'>
