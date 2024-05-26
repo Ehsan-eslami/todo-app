@@ -7,6 +7,12 @@ export default function ThemeSwitcher() {
     return storedTheme !== 'darkTheme';
   });
 
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+        console.log(window.innerWidth);
+    }
+  }, []);
+
   function setLightTheme() {
     setIsLight(true);
     window.localStorage.setItem('prefered-theme', 'lightTheme');
